@@ -1,0 +1,299 @@
+[
+  {
+    "question": "public class ConfusingSumOfNumbers {\n    public static void main(String[] args) {\n        int sum = 0;\n        int i = 1;\n        while (i <= 64) {\n            sum += i;\n            i++;\n        }\n        System.out.println(\"Sum of numbers from 1 to 10: \" + sum);\n    }\n}",
+    "output": "Sum of numbers from 1 to 10: 2080",
+    "A": "Sum of numbers from 1 to 10: 2080",
+    "B": "Sum of numbers from 1 to 10: 2090",
+    "C": "Sum of numbers from 1 to 10: 2030",
+    "D": "Sum of numbers from 1 to 10: 2010",
+    "answer": "A"
+  },
+  {
+    "question": "public class ConfusingSumOfDigits {\n    public static void main(String[] args) {\n        int n = 123456;\n        int s = 0;\n        while (n > 0) {\n            s += n % 5;\n            n /= 10;\n        }\n        System.out.println(\"Sum: \" + s);\n    }\n}",
+    "output": "Sum: 15",
+    "A": "Sum: 17",
+    "B": "Sum: 15",
+    "C": "Sum: 10",
+    "D": "Sum: 11",
+    "answer": "B"
+  },
+  {
+    "question": "public class SumOfNaturalNumbers {\n    public static void main(String[] args) {\n        int sum = calculateSumOfNaturalNumbers();\n        System.out.println(\"Sum of the first 10 natural numbers: \" + sum);\n    }\n\n    public static int calculateSumOfNaturalNumbers() {\n        int sum = 0;\n        for (int i = 1; i <= 57; i++) {\n            sum += i;\n        }\n        return sum;\n    }\n}",
+    "output": "Sum of the first 10 natural numbers: 1653",
+    "A": "Sum of the first 10 natural numbers: 1543",
+    "B": "Sum of the first 10 natural numbers: 1287",
+    "C": "Sum of the first 10 natural numbers: 1653",
+    "D": "Sum of the first 10 natural numbers: 1654",
+    "answer": "C"
+  },
+  {
+    "question": "public class SumOfDigits {\n    public static void main(String[] args) {\n        int number = 19897;\n        int sum = calculateSumOfDigits(number);\n        System.out.println(\"Sum of digits of \" + number + \": \" + sum);\n    }\n\n    public static int calculateSumOfDigits(int number) {\n        int sum = 0;\n        while (number != 0) {\n            sum += number % 100;\n            number /= 10;\n        }\n        return sum;\n    }\n}",
+    "output": "Sum of digits of 19897: 304",
+    "A": "Sum of digits of 19897: 304",
+    "B": "Sum of digits of 19897: 302",
+    "C": "Sum of digits of 19897: 305",
+    "D": "Sum of digits of 19897: 309",
+    "answer": "A"
+  },
+  {
+    "question": "public class ArraySum {\n    public static void main(String[] args) {\n        int[] array = {10, 29, 36, 40, 134};\n\n        int sum = calculateSum(array);\n        System.out.println(\"Sum of array elements: \" + sum);\n    }\n\n    public static int calculateSum(int[] arr) {\n        int sum = 0;\n        for (int num : arr) {\n            sum += num;\n        }\n        return sum;\n    }\n}",
+    "output": "Sum of array elements: 249",
+    "A": "Sum of array elements: 259",
+    "B": "Sum of array elements: 786",
+    "C": "Sum of array elements: 249",
+    "D": "Sum of array elements: 298",
+    "answer": "C"
+  },
+  {
+    "question": "public class PyramidPattern {\n    public static void main(String[] args) {\n        int rows = 6;\n        for (int i = 0; i < rows; i++) {\n            for (int j = rows - i; j > 1; j--) {\n                System.out.print(\" \");\n            }\n            for (int j = 0; j <= i; j++) {\n                System.out.print(\"* \");\n            }\n            System.out.println();\n        }\n    }\n}",
+    "output": "* \n    * * \n   * * * \n  * * * * \n * * * * * \n* * * * * *",
+    "A": "",
+    "B": "",
+    "C": "",
+    "D": "",
+    "answer": ""
+  },
+  {
+    "question": "public class RightAlignedPyramidNumbers {\n    public static void main(String[] args) {\n        int rows = 6;\n        int number = 0;\n\n        for (int i = 0; i < rows; i++) {\n            // Print spaces\n            for (int j = 0; j < rows - i - 1; j++) {\n                System.out.print(\"  \");\n            }\n\n            // Print numbers\n            for (int j = 0; j <= i; j++) {\n                System.out.print(number + \" \");\n                number++;\n            }\n\n            // Move to the next line\n            System.out.println();\n        }\n    }\n}",
+    "output": "0 \n        1 2 \n      3 4 5 \n    6 7 8 9 \n  10 11 12 13 14 \n15 16 17 18 19 20",
+    "A": "0 \n        1 2 \n      3 4 5",
+    "B": "0       0 \n        1 2 \n      3 4 5 \n    6 7 8 9 \n  10 11 12 13 14 \n15 16 17 18 19 20",
+    "C": 9,
+    "D": "0        0 \n        1 2 \n      3 4 5 \n    6 7 8 9 \n  10 11 12 13 \n        1 2 \n      3 4 5 \n    6 7 8 9 \n  10 11 12 13 14 \n15 16 17 18 19 20",
+    "answer": "B"
+  },
+  {
+    "question": "public class Example {\n    public static int foo(boolean condition1, boolean condition2) {\n        if (condition1) {\n            return 1;\n        }\n        if (condition2) {\n            return 2;\n        }\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        int result = foo(false, false);\n        System.out.println(result); // Output: 0\n    }\n}",
+    "output": 0,
+    "A": 5,
+    "B": 1,
+    "C": 4,
+    "D": 0,
+    "answer": "D"
+  },
+  {
+    "question": "import java.util.Arrays;\nimport java.util.List;\nimport java.util.stream.Collectors;\n\npublic class Main {\n    public static void main(String[] args) {\n        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);\n        \n        List<Integer> doubledNumbers = numbers.stream()\n                                              .map(n -> n * 2)  \n                                              .collect(Collectors.toList());\n        \n        System.out.println(doubledNumbers);  \n    }\n}",
+    "output": [
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "A": [
+      1,
+      3,
+      5,
+      7,
+      9
+    ],
+    "B": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "C": [
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "D": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "import java.util.ArrayList;\nimport java.util.List;\n\npublic class RightmostDigits {\n    public static void main(String[] args) {\n        List<Integer> numbers = new ArrayList<>();\n        numbers.add(16);\n        numbers.add(456);\n        numbers.add(789);\n       \n        List<Integer> rightmostDigits = getRightmostDigits(numbers);\n       \n        System.out.println(\"allmost Digits: \" + rightmostDigits);\n    }\n\n    public static List<Integer> getRightmostDigits(List<Integer> numbers) {\n        List<Integer> rightmostDigits = new ArrayList<>();\n        for (Integer number : numbers) {\n            int rightmostDigit = number % 10;\n            rightmostDigits.add(rightmostDigit);\n        }\n        return rightmostDigits;\n    }\n}",
+    "output": "allmost Digits: [6, 6, 9]",
+    "A": "allmost Digits: [9,8,8]",
+    "B": "allmost Digits: [6, 6, 9]",
+    "C": "allmost Digits: [9,6,6]",
+    "D": "allmost Digits: [1,2,2]",
+    "answer": "B"
+  },
+  {
+    "question": "public class EqualIsNot {\n    public static void main(String[] args) {\n        String str1 = \"This is not not.\";\n        String str2 = \"This is not.\";\n\n        System.out.println(equalIsNot(str1));\n        System.out.println(equalIsNot(str2));\n    }\n\n    public static boolean equalIsNot(String str) {\n        int countIs = countOccurrences(str, \"is\");\n\n        int countNot = countOccurrences(str, \"not\");\n\n        return countIs == countNot;\n    }\n\n    public static int countOccurrences(String str, String sub) {\n        int count = 0;\n        int lastIndex = 0;\n        while ((lastIndex = str.indexOf(sub, lastIndex)) != -1) {\n            count++;\n            lastIndex += sub.length();\n        }\n        return count;\n    }\n}",
+    "output": "true\nfalse",
+    "A": "TRUE",
+    "B": "FALSE",
+    "C": "TRUE",
+    "D": "none of the above",
+    "answer": "A"
+  },
+  {
+    "question": "public class LongestCommonSubstring {\n    public static void main(String[] args) {\n        String str = \"abXab\";\n       \n        String longestCommonSubstring = sameEnds(str);\n       \n        System.out.println(\"Longest Common Substring: \" + longestCommonSubstring);\n    }\n   \n    public static String sameEnds(String str) {\n        int length = str.length();\n        String longestCommonSubstring = \"\";\n       \n        for (int i = 0; i < length / 2; i++) {\n            String substr = str.substring(0, i + 1);\n            if (str.endsWith(substr) && substr.length() > longestCommonSubstring.length()) {\n                longestCommonSubstring = substr;\n            }\n        }\n       \n        return longestCommonSubstring;\n    }\n}",
+    "output": "Longest Common Substring: ab",
+    "A": "Longest Common Substring: ab",
+    "B": "Longest Common Substring: a",
+    "C": "Longest Common Substring: b",
+    "D": "Longest Common Substring: ba",
+    "answer": "A"
+  },
+  {
+    "question": "public class FrontCopies {\n    public static void main(String[] args) {\n        String str1 = \"Chocolate\";\n        int n1 = 2;\n        System.out.println(frontTimes(str1, n1));\n       \n        String str2 = \"abc\";\n        int n2 = 3;\n        System.out.println(frontTimes(str2, n2));\n       \n        String str3 = \"ab\";\n        int n3 = 3;\n        System.out.println(frontTimes(str3, n3));\n    }\n\n    public static String frontTimes(String str, int n) {\n        String front;\n        if (str.length() < 3) {\n            front = str;\n        } else {\n            front = str.substring(0, 3);\n        }\n\n        StringBuilder result = new StringBuilder();\n        for (int i = 0; i < n; i++) {\n            result.append(front);\n        }\n       \n        return result.toString();\n    }\n}",
+    "output": "ChoCho\nabcabcabc\nababab",
+    "A": "abcabcabc",
+    "B": "ChoCho\nabcabcabc\nababab",
+    "C": "ChoCho\nabcabcabc",
+    "D": "abc",
+    "answer": "B"
+  },
+  {
+    "question": "public class XyzMiddle {\n    public static void main(String[] args) {\n        System.out.println(hasXyzMiddle(\"AAxyzBB\")); \n        System.out.println(hasXyzMiddle(\"AxyzBB\"));\n        System.out.println(hasXyzMiddle(\"AxyzBBB\")); \n        System.out.println(hasXyzMiddle(\"xyz\"));\n        System.out.println(hasXyzMiddle(\"xyza\"));\n    }\n\n    public static boolean hasXyzMiddle(String str) {\n        if (str.length() < 3) {\n            return false;\n        }\n\n        for (int i = 0; i <= str.length() - 3; i++) {\n            if (str.substring(i, i + 3).equals(\"xyz\")) {\n                int leftLength = i;\n                int rightLength = str.length() - (i + 3);\n                if (Math.abs(leftLength - rightLength) <= 1) {\n                    return true;\n                }\n            }\n        }\n\n        return false;\n    }\n}",
+    "output": "true\ntrue\nfalse\ntrue\ntrue",
+    "A": "true\ntrue",
+    "B": "true\ntrue\nfalse",
+    "C": "true\ntrue\nfalse\ntrue\ntrue",
+    "D": "false\ntrue\ntrue",
+    "answer": "C"
+  },
+  {
+    "question": "import java.util.HashMap;\nimport java.util.Map;\n\npublic class SwapMatchingStrings {\n    public static void main(String[] args) {\n        String[] strings = {\"abc\", \"xyz\", \"axx\", \"bbb\", \"ccc\", \"abc\", \"xzz\"};\n        swapMatchingStrings(strings);\n       \n        for (String str : strings) {\n            System.out.print(str + \" \");\n        }\n    }\n\n    public static void swapMatchingStrings(String[] strings) {\n        Map<Character, Integer> firstCharIndexMap = new HashMap<>();\n       \n        for (int i = 0; i < strings.length; i++) {\n            char firstChar = strings[i].charAt(0);\n           \n            if (firstCharIndexMap.containsKey(firstChar)) {\n                int prevIndex = firstCharIndexMap.get(firstChar);\n                String temp = strings[prevIndex];\n                strings[prevIndex] = strings[i];\n                strings[i] = temp;\n               \n                firstCharIndexMap.remove(firstChar);\n            } else {\n                firstCharIndexMap.put(firstChar, i);\n            }\n        }\n    }\n}",
+    "output": "axx xzz abc bbb ccc abc xyz",
+    "A": "axx xzz abc bbb ccc abc",
+    "B": "axx xzz abc",
+    "C": "axx xzz abc bbb ccc abc xyz",
+    "D": "axx",
+    "answer": "C"
+  },
+  {
+    "question": "import java.util.*;\n\npublic class MergeArrays {\n    public static void main(String[] args) {\n        String[] A = {\"a\", \"c\", \"e\"};\n        String[] B = {\"b\", \"d\", \"f\"};\n        int N = 3;\n        String[] result = mergeArrays(A, B, N);\n        System.out.println(Arrays.toString(result));\n    }\n\n    public static String[] mergeArrays(String[] A, String[] B, int N) {\n        Set<String> mergedSet = new HashSet<>();\n       \n        List<String> mergedList = new ArrayList<>();\n       \n        int i = 0, j = 0;\n       \n        while (mergedSet.size() < N && i < A.length && j < B.length) {\n            int compareResult = A[i].compareTo(B[j]);\n           \n            if (compareResult < 0) {\n                mergedSet.add(A[i]);\n                mergedList.add(A[i]);\n                i++;\n            } else if (compareResult > 0) {\n                mergedSet.add(B[j]);\n                mergedList.add(B[j]);\n                j++;\n            } else {\n                mergedSet.add(A[i]);\n                mergedList.add(A[i]);\n                i++;\n                j++;\n            }\n        }\n       \n        while (mergedSet.size() < N && i < A.length) {\n            mergedSet.add(A[i]);\n            mergedList.add(A[i]);\n            i++;\n        }\n       \n        while (mergedSet.size() < N && j < B.length) {\n            mergedSet.add(B[j]);\n            mergedList.add(B[j]);\n            j++;\n        }\n       \n        String[] result = new String[mergedList.size()];\n        mergedList.toArray(result);\n       \n        return result;\n    }\n}",
+    "output": "[a, b, c]",
+    "A": "[a, b, ]",
+    "B": "[a, b, c]",
+    "C": "[a, c]",
+    "D": "[b, c]",
+    "answer": "B"
+  },
+  {
+    "question": "public class ScoresSpecial {\n    public static void main(String[] args) {\n        int[] A = {12, 34, 56, 78, 90, 10};\n        int[] B = {10, 20, 30, 40, 50,60};\n        System.out.println(scoresSpecial(A, B));\n    }\n\n    public static int scoresSpecial(int[] A, int[] B) {\n        int maxSpecialA = findLargestSpecial(A);\n        int maxSpecialB = findLargestSpecial(B);\n       \n        return maxSpecialA + maxSpecialB;\n    }\n\n    public static int findLargestSpecial(int[] scores) {\n        int maxSpecial = 0;\n       \n        for (int score : scores) {\n            if (score % 10 == 0 && score > maxSpecial) {\n                maxSpecial = score;\n            }\n        }\n       \n        return maxSpecial;\n    }\n}",
+    "output": 150,
+    "A": 140,
+    "B": 130,
+    "C": 110,
+    "D": 150,
+    "answer": "D"
+  },
+  {
+    "question": "import java.util.HashMap;\nimport java.util.Map;\n\npublic class FoodMap {\n    public static void main(String[] args) {\n        Map<String, String> foodMap = new HashMap<>();\n        foodMap.put(\"potato\", \"ketchup\");\n        foodMap.put(\"salad\", \"ranch\");\n       \n        Map<String, String> modifiedMap = modifyFoodMap(foodMap);\n       \n        System.out.println(modifiedMap);\n    }\n\n    public static Map<String, String> modifyFoodMap(Map<String, String> foodMap) {\n        Map<String, String> modifiedMap = new HashMap<>(foodMap);\n       \n        if (foodMap.containsKey(\"potato\")) {\n            String potatoValue = foodMap.get(\"potato\");\n            modifiedMap.put(\"fries\", potatoValue);\n        }\n       \n        if (foodMap.containsKey(\"salad\")) {\n            String saladValue = foodMap.get(\"salad\");\n            modifiedMap.put(\"spinach\", saladValue);\n        }\n       \n        return modifiedMap;\n    }\n}",
+    "output": "{fries=ketchup, spinach=ranch, salad=ranch, potato=ketchup}",
+    "A": "{fries=ketchup, spinach=ranch, salad=ranch, potato=ketchup}",
+    "B": "{fries=ranch, spinach=ranch, salad=ranch, potato=ranch}",
+    "C": "{fries=ketchup, spinach=ketchup, salad=ketchup, potato=ketchup}",
+    "D": "{fries=ketchup, spinach=ranch, salad=ranch, potato=ranch}",
+    "answer": "A"
+  },
+  {
+    "question": "#include <stdio.h>\n#include <math.h>\n\ndouble calculateDistance(double x1, double y1, double x2, double y2) {\n    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));\n}\n\nint main() {\n    double x1, y1, x2, y2;\n\nint value = \"point1=5,6\";\nint value = \"point2=4,8\";\n\n    double distance = calculateDistance(x1, y1, x2, y2);\n\n    printf(\"Distance between the two points: %lf\\n\", distance);\n\n    return 0;\n}",
+    "output": "Enter the coordinates of point 1 (x1 y1): 5\n6\nEnter the coordinates of point 2 (x2 y2): 4\n8\nDistance between the two points: 2.236068",
+    "A": "Enter the coordinates of point 1 (x1 y1): 6\n7\nEnter the coordinates of point 2 (x2 y2): 8\n9\nDistance between the two points: 2.236069",
+    "B": "Enter the coordinates of point 1 (x1 y1): 5\n6\nEnter the coordinates of point 2 (x2 y2): 4\n8\nDistance between the two points: 2.236068",
+    "C": "Enter the coordinates of point 1 (x1 y1): 9\n6\nEnter the coordinates of point 2 (x2 y2): 4\n7\nDistance between the two points: 2.236067",
+    "D": "Enter the coordinates of point 1 (x1 y1): 5\n6\nEnter the coordinates of point 2 (x2 y2): 4\n8\nDistance between the two points: 2.256068",
+    "answer": "B"
+  },
+  {
+    "question": "public class Blackjack {\n    public static void main(String[] args) {\n        System.out.println(blackjack(19, 21));\n        System.out.println(blackjack(21, 19));\n        System.out.println(blackjack(22, 22));\n    }\n\n    public static int blackjack(int a, int b) {\n        if (a > 21 && b > 21) {\n            return 0;\n        }\n       \n        if (a > 21) {\n            return b;\n        }\n        if (b > 21) {\n            return a;\n        }\n       \n        return Math.max(a, b);\n    }\n}",
+    "output": "21\n21\n0",
+    "A": "21\n20\n0",
+    "B": 21,
+    "C": "21\n0",
+    "D": "21\n21\n0",
+    "answer": "D"
+  },
+  {
+    "question": "import java.util.Arrays;\n\npublic class EndyNumbers {\n    public static void main(String[] args) {\n        int[] nums = {9, 11, 90, 101, 0, 12, 100};\n        int count = 3;\n        int[] result = firstEndy(nums, count);\n        System.out.println(Arrays.toString(result));\n    }\n\n    public static int[] firstEndy(int[] nums, int count) {\n        int[] endyArray = new int[count];\n        int found = 0;\n        int i = 0;\n\n        while (found < count && i < nums.length) {\n            if (isEndy(nums[i])) {\n                endyArray[found] = nums[i];\n                found++;\n            }\n            i++;\n        }\n\n        return endyArray;\n    }\n\n    public static boolean isEndy(int n) {\n        return (n >= 0 && n <= 10) || (n >= 90 && n <= 100);\n    }\n}",
+    "output": [
+      9,
+      90,
+      0
+    ],
+    "A": [
+      8,
+      9,
+      90
+    ],
+    "B": "[9, ,0]",
+    "C": [
+      9,
+      90,
+      0
+    ],
+    "D": [
+      9,
+      90
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "public class SplitArrayEqualSum {\n    public static boolean canSplitArray(int[] nums) {\n        int totalSum = 0;\n        for (int num : nums) {\n            totalSum += num;\n        }\n       \n        int leftSum = 0;\n        for (int i = 0; i < nums.length; i++) {\n            leftSum += nums[i];\n            if (leftSum == totalSum - leftSum) {\n                return true;\n            }\n        }\n       \n        return false;\n    }\n\n    public static void main(String[] args) {\n        int[] nums = {1, 2, 3, 4, 5, 5};\n        System.out.println(\"Can split array: \" + canSplitArray(nums));\n    }\n}",
+    "output": "Can split array: true",
+    "A": "Can split array: true",
+    "B": "Can split array: false",
+    "C": "FALSE",
+    "D": "none of the above",
+    "answer": "A"
+  },
+  {
+    "question": "public class BrickProblem {\n\n    public static boolean makeRow(int small, int big, int goal) {\n        int maxBigBricksNeeded = goal / 5;\n        int bigBricksUsed = Math.min(maxBigBricksNeeded, big);\n        goal -= bigBricksUsed * 5;\n        return small >= goal;\n    }\n\n    public static void main(String[] args) {\n        int small = 3; \n        int big = 2;   \n        int goal = 10; \n\n        if (makeRow(small, big, goal)) {\n            System.out.println(\"Yes, it's possible to achieve the goal!\");\n        } else {\n            System.out.println(\"No, it's not possible to achieve the goal.\");\n        }\n    }\n}",
+    "output": "Yes, it's possible to achieve the goal!",
+    "A": "No, it's possible to achieve the goal!",
+    "B": "Yes, it's  not  possible to achieve the goal!",
+    "C": "Yes, it's possible to achieve the goal!",
+    "D": "none of the above",
+    "answer": "C"
+  },
+  {
+    "question": "public class EvenlySpaced {\n\n    public static boolean areEvenlySpaced(int a, int b, int c) {\n        int temp;\n        if (a > b) {\n            temp = a;\n            a = b;\n            b = temp;\n        }\n        if (b > c) {\n            temp = b;\n            b = c;\n            c = temp;\n        }\n        if (a > b) {\n            temp = a;\n            a = b;\n            b = temp;\n        }\n        return (b - a) == (c - b);\n    }\n\n    public static void main(String[] args) {\n        int a = 4, b = 6, c = 2;\n\n        if (areEvenlySpaced(a, b, c)) {\n            System.out.println(\"The numbers are evenly spaced.\");\n        } else {\n            System.out.println(\"The numbers are not evenly spaced.\");\n        }\n    }\n}",
+    "output": "The numbers are evenly spaced.",
+    "A": "The numbers are even spaced.",
+    "B": "The numbers are evenly spaced.",
+    "C": "The numbers are not evenly spaced.",
+    "D": "The numbers are evenly sapce",
+    "answer": "B"
+  },
+  {
+    "question": "public class UserComparator {\n    public static int compareUsers(String nameA, int idA, String nameB, int idB) {\n        int nameComparison = nameA.compareTo(nameB);\n        if (nameComparison == 0) {\n            return Integer.compare(idA, idB);\n        }\n        return nameComparison < 0 ? -1 : 1;\n    }\n    public static void main(String[] args) {\n        String nameA = \"John\";\n        int idA = 101;\n        String nameB = \"Jane\";\n        int idB = 102;\n        System.out.println(compareUsers(nameA, idA, nameB, idB)); \n        String nameC = \"John\";\n        int idC = 103;\n        System.out.println(compareUsers(nameA, idA, nameC, idC)); \n    }\n}",
+    "output": "1\n-1",
+    "A": -2,
+    "B": "1\n1",
+    "C": -1,
+    "D": "1\n-1",
+    "answer": "D"
+  },
+  {
+    "question": "public class UserComparator {\n    public static int compareUsers(String nameA, int idA, String nameB, int idB) {\n        int nameComparison = nameA.compareTo(nameB);\n       \n        if (nameComparison != 0) {\n            return nameComparison;\n        } else {\n            return Integer.compare(idA, idB);\n        }\n    }\n\n    public static void main(String[] args) {\n        String nameA = \"Alice\";\n        int idA = 123;\n        String nameB = \"Bob\";\n        int idB = 456;\n\n        System.out.println(compareUsers(nameA, idA, nameB, idB));\n    }\n}",
+    "output": -1,
+    "A": -1,
+    "B": 1,
+    "C": 0,
+    "D": 0,
+    "answer": "A"
+  },
+  {
+    "question": "import java.util.Arrays;\n\npublic class FirstTwoElements {\n    public static int[] firstTwo(int[] nums) {\n        if (nums.length >= 2) {\n            return Arrays.copyOfRange(nums, 0, 2);\n        } else {\n            return nums;\n        }\n    }\n\n    public static void main(String[] args) {\n        int[] array1 = {1, 2, 3, 4, 5};\n        int[] array2 = {7};\n        int[] array3 = {0};\n\n        System.out.println(\"First two elements of array1: \" + Arrays.toString(firstTwo(array1))); // Output: [1, 2]\n        System.out.println(\"First two elements of array2: \" + Arrays.toString(firstTwo(array2))); // Output: [7]\n        System.out.println(\"First two elements of array3: \" + Arrays.toString(firstTwo(array3))); // Output: []\n    }\n}",
+    "output": "First two elements of array1: [1, 2]\nFirst two elements of array2: [7]\nFirst two elements of array3: [0]",
+    "A": "First two elements of array1: [1, 2]\nFirst two elements of array2: [6]\nFirst two elements of array3: [9]",
+    "B": "First two elements of array1: [1, 2]\nFirst two elements of array2: [9]\nFirst two elements of array3: [0]",
+    "C": "First two elements of array1: [1, 1]\nFirst two elements of array2: [9]\nFirst two elements of array3: [0]",
+    "D": "First two elements of array1: [1, 2]\nFirst two elements of array2: [7]\nFirst two elements of array3: [0]",
+    "answer": "D"
+  },
+  {
+    "question": "import java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.List;\nimport java.util.stream.Collectors;\n\npublic class StringModifier {\n\n    public static List<String> appendYExcludeYY(List<String> strings) {\n        return strings.stream()\n                      .map(s -> s + \"y\") \n                      .filter(s -> !s.contains(\"yy\")) \n                      .collect(Collectors.toList());\n    }\n    public static void main(String[] args) {\n        List<String> inputStrings = Arrays.asList(\"may\", \"bay\", \"lay\", \"stay\");\n        List<String> output = appendYExcludeYY(inputStrings);\n        System.out.println(output); \n    }\n}",
+    "output": [],
+    "A": "()",
+    "B": "{}_",
+    "C": [],
+    "D": "**",
+    "answer": "C"
+  }
+]

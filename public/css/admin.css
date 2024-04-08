@@ -1,0 +1,194 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.admin_page{
+    position: relative;
+    max-width: 100vw;
+    min-height: 100vh;
+    background: #eee;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #fff;
+}
+
+.logo{
+    width: 70px;
+    height: 70px;
+    border: 50%;
+    overflow: hidden;
+    border: 2px solid #fff;
+    box-shadow: 0px 0px 10px #494949;
+    border-radius: 50%;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.logout{
+    background: blue;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.main{
+    position: relative;
+    top: 100px;
+    padding: 10px;
+    display: flex;
+}
+
+.section_header{
+    padding: 15px;
+    max-width: calc(100% - 10px);
+    background: #fff;
+    border-radius: 5px;
+}
+
+.aside{
+    width: 200px;
+    background: #fff;
+    max-height: calc(100vh - 100px);
+    position: fixed;
+    left: 0;
+    padding: 10px;
+    height: 100vh;
+    border-radius: 5px;
+}
+
+.main_section{
+    position: fixed;
+    left: 210px;
+    padding: 0px 10px;
+    max-width: calc(100vw - 200px);
+    width: 100%;
+}
+
+.tabel_container{
+    margin-top: 10px;
+    padding: 10px;
+    max-width: calc(100% - 10px);
+    overflow-x: scroll;
+}
+
+.admin_table{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #fff;
+    padding: 10px;
+}
+
+th{
+    padding: 10px;
+    text-wrap: nowrap;
+    background: purple;
+    color: #fff;
+    border-right: 2px solid #ffffff;
+
+}
+
+td{
+    padding: 10px;
+    border-bottom: 2px solid #cacaca;
+    border-left: 2px solid #cacaca;
+}
+
+.side_menu{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu_title{
+    margin-top: 10px;
+    color: #494949;
+    font-weight: bold;
+    font-family: sans-serif;
+    border-bottom: 2px solid #cacaca;
+    padding: 5px 0;
+}
+
+.ball{
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    border: 2px solid #ffffff;
+}
+
+.online{
+    background: green;
+    box-shadow: 0px 0px 10px #02ff02;
+}
+
+.offline{
+    background: red;
+    box-shadow: 0px 0px 10px #ff0202;
+}
+
+.admin_name, .tag{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    width: 100%;
+    text-transform: capitalize;
+}
+
+p.logtime {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 11px;
+    padding: 2px;
+    color: #fff;
+    border-radius: 5px;
+}
+  
+/* Style the scrollbar track */
+::-webkit-scrollbar {
+  width:  5px; /* Width of the scrollbar */
+  height: 5px; /* Width of the scrollbar */
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the thumb */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Optionally, style the scrollbar track when hovered */
+::-webkit-scrollbar-track:hover {
+  background-color: #f0f0f0; /* Color of the track on hover */
+}
+
+/* Optionally, style the scrollbar thumb when hovered */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color of the thumb on hover */
+}
+
+.table_container {
+    overflow: auto;
+}

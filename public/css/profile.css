@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.page{
+    max-width: 100vw;
+    min-height: 100vh;
+    background: #f7f7f7;
+}
+
+.navbar{
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+}
+
+.user_pic{
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    box-shadow: 0px 0px 9px #bebebe;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+
+.logout{
+    margin-right: 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+    background: #9b9b9b;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.nav_profile{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user_name{
+    font-family: sans-serif;
+    text-transform: capitalize;
+    color: #707070;
+}
+
+.event_name{
+    letter-spacing: 5px;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.profile_page{
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.inner_profile{
+    margin: 20px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 3px 3px 8px #a8a8a8;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.top{
+    display: flex;
+}
+
+.left_profile,.right_profile{
+    width: 250px;
+    height: 200px;
+    background: rgba(4, 219, 219, 0.767);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    gap: 15px;
+}
+
+.left_profile{
+    justify-content: center;
+}
+
+.right_profile{
+    min-width: 400px;
+    background: #fff;
+    align-items: flex-start;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.left_profile .user_name{
+    color: #ffffff;
+    text-shadow: 1px 1px 3px #707070;
+    font-family: monospace;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.details_list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 2px;
+}
+
+.title{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 2px;
+    color: #707070;
+    font-size: 20px;
+    padding: 10px 15px;
+}
+
+label{
+    padding: 5px;
+    color: #494949;
+    font-weight: 900;
+    text-wrap: nowrap;
+    font-size: 20px;
+}
+
+.value{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.details{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.inner_detail{
+    width: 50%;
+    text-align: center;
+}
+
+.buttom{
+    padding: 10px;
+}
+
+.first_child{
+    margin-top: 10px;
+}
+
+.buttom .details{
+    margin-top: 10px;
+}
+
+.history{
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.login_history, .logout_history{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+
+}
+
+.timings::before{
+    content: "⌛"; /* Custom bullet point */
+    position: relative;
+    margin-left: 10px;
+}

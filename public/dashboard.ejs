@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Font Awesome CSS via CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <!-- Include languages for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/java.min.js"></script>
+  </head>
+<body>
+    <div class="page">
+        <div class="container">
+        </div>
+        <input type="hidden" id="hiddenInput" value="0">
+        <header class="header">
+            <div class="event">PIXEL QUEST</div>
+            <button class="skip"  onclick="skipround()"><i class="fas fa-forward"></i> Skip to next round</button>
+            <div class="timer">
+                <div class="time_icon">
+                    <i class="fas fa-hourglass-half"></i>
+                </div>
+                <div class="timer_count" id="timer">09:59</div>
+            </div>
+            <ul class="profile-container">
+                <li class="profile">
+                    <div class="inner_profile">
+                        <img src="/assets/img/profile-male.png" alt="display image">
+                    </div>
+                </li>
+                <li class="menu_options">
+                    <p class="option" href="#">
+                        <i class="fas fa-users"></i>
+                        <% if (team) { %>
+                            <%= team.team_name %>
+                            <input type="hidden" id="team_name" value="<%= team.team_name %>">
+                            <input type="hidden" id="team_id" value="<%= team._id %>">
+                        <% } else { %>
+                            No team details found.
+                        <% } %>
+                    </p>
+                    <a class="option" href="/logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        logout
+                    </a>
+                </li>
+            </ul>
+        </header>
+        <aside class="side_bar active">
+            <button class="side_button">
+                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <ul class="activities_list">
+                <li class="activity">
+                    <div class="activity_title currentroundTitle">Current Round</div>
+                    <div class="activity_value currentround" style="font-size: 20px;"></div>
+                </li>
+                <li class="activity">
+                    <div class="activity_title">Images Found</div>
+                    <div class="activity_value imagefound">00</div>
+                </li>
+                <li class="activity">
+                    <div class="activity_title">Score</div>
+                    <div class="activity_value score">00</div>
+                </li>
+                <li class="activity">
+                    <div class="activity_title">Attempts</div>
+                    <div class="activity_value attempts">00</div>
+                </li>
+            </ul>
+        </aside>
+        <main class="main" style="display: flex;">
+            <div class="image_container">
+                <img src="/assets/img/img1.png" alt="image" class="image">
+                <ul class="image_mask">
+                    <button class="mask" index="0">
+                        <div class="icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="1">
+                        <div class="icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="2">
+                        <div class="icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="3">
+                        <div class="icon">
+                            <i class="far fa-dizzy"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="4">
+                        <div class="icon">
+                            <i class="far fa-meh-rolling-eyes"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="5">
+                        <div class="icon">
+                            <i class="far fa-lightbulb"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="6">
+                        <div class="icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="7">
+                        <div class="icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="8">
+                        <div class="icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="9">
+                        <div class="icon">
+                            <i class="far fa-dizzy"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="10">
+                        <div class="icon">
+                            <i class="far fa-meh-rolling-eyes"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="11">
+                        <div class="icon">
+                            <i class="far fa-lightbulb"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="12">
+                        <div class="icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="13">
+                        <div class="icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="14">
+                        <div class="icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                    </button>
+                    <button class="mask" index="15">
+                        <div class="icon">
+                            <i class="far fa-dizzy"></i>
+                        </div>
+                    </button>
+                </ul>
+            </div>
+            <div class="questio_container">
+                <button class="full_screen">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                    <i class="fas fa-compress-arrows-alt"></i>
+                </button>
+                <div class="question_title">
+                    <i class="fas fa-question-circle"></i> <div class="question">Questions will appears here !</div>
+                </div>
+                <div class="question_options">
+                    <div class="load_question active" >
+                        <div class="circle"></div>
+                    </div>
+                    <div class="buttons">
+                        <button class="submit" disabled>submit</button>
+                    </div>
+                    <div class="showQuestions">
+                        <br>
+                        Your options to the related questions will appears here ! 
+                        <br>
+                        <p class="highlight"><i class="fas fa-hand-point-right"></i> You have to find the 3 images totally</p>
+                        <p class="highlight"><i class="fas fa-hand-point-right"></i> The count of images found will be consider to select winner</p>
+                        <p class="highlight"><i class="fas fa-hand-point-right"></i> Time taken to find the image will be consider to select winner</span>
+                    </div>
+                    <!-- <label>
+                        <input type="radio" name="option" id="" class="radioBtn"> Option 1
+                    </label>
+                    <label>
+                        <input type="radio" name="option" id="" class="radioBtn"> Option 2
+                    </label>
+                    <label>
+                        <input type="radio" name="option" id="" class="radioBtn"> Option 3
+                    </label> -->
+                </div>
+                
+            </div>
+        </main>
+        <audio id="correctAudio" src="/assets/audio/points.mp3"></audio>
+        <audio id="wrongAudio" src="/assets/audio/loss.mp3"></audio>
+        <audio id="victoryAudio" src="/assets/audio/victory1.mp3"></audio>
+
+
+    </div>
+    
+    <!-- <script src="js/dashboard.js"></script> -->
+    <script src="js/question.js"></script>
+    <script src="js/inspect.js"></script>
+   
+</body>
+</html>

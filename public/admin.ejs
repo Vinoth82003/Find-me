@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="page">
+        <div class="admin_page">
+            <div class="header">
+                <div class="logo">
+                    <img src="assets/img/user1.png" alt="admin">
+                </div>
+                <a href="/adminlogout" class="logout">logout</a>
+            </div>
+            <main class="main">
+                <aside class="aside">
+                    <ul class="side_menu">
+                        <li class="menu_title">Other Admins</li>
+                        <li class="admin_name">Admin 1 <div class="online ball"></div></li>
+                        <li class="admin_name">Admin 2 <div class="offline ball"></div></li>
+                        <li class="admin_name">Admin 3 <div class="online ball"></div></li>
+                        <li class="admin_name">Admin 4 <div class="online ball"></div></li>
+                    </ul>
+                </aside>
+                <section class="main_section">
+                    <div class="section_header">
+                        <div class="tag">Admin <div class="online ball"></div></div>
+                    </div>
+                    <div class="table_container">
+                        <table class="admin_table">
+                            <thead class="table_head">
+                                <tr>
+                                    <th>Sno</th>
+                                    <th>Team Name</th>
+                                    <th>Current Round</th>
+                                    <th>Score</th>
+                                    <th>Images Found</th>
+                                    <th>Attempts</th>
+                                    <th>Game Over</th>
+                                    <th>Malpractice</th>
+                                    <th>Logins</th>
+                                    <th>LogOuts</th>
+                                    <th>Game over time</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbody">
+                                <%= teams.length %>
+                                <% if(teams.length != 0){ %>
+                                    <% teams.forEach((team, index) => { %>
+                                        <tr>
+                                            <td><%= index + 1 %></td>
+                                            <td><%= team.team_name %></td>
+                                            <td><%= team.currentRound %></td>
+                                            <td><%= team.score %></td>
+                                            <td><%= team.images_found %></td>
+                                            <td><%= team.attempts %></td>
+                                            <td><%= team.gameOver ? 'Yes' : 'No' %></td>
+                                            <td><%= team.malpractice.join(', ') %></td>
+                                            <td><%= team.login_punches.join(', ') %></td>
+                                            <td><%= team.logout_punches.join(', ') %></td>
+                                            <td><%= team.gameOverTime %></td>
+                                        </tr>
+                                        <% }); %>
+                                <% } else{ %>
+                                    <tr>
+                                        <td colspan="10">No Participants Yet</td>
+                                    </tr>
+                                <% }%>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="js/admin.js"></script>
+    <script src="js/inspect.js"></script>
+</body>
+</html>

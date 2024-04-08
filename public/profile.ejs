@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= team.team_name %> - Profile</title>
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <div class="page">
+        <% if (team) { %>
+            <nav class="navbar">
+            <div class="nav_profile">
+                <div class="user_pic">
+                    <%= team.team_name[0] %>
+                </div>
+                <h2 class="user_name"><%= team.team_name %></h2>
+            </div>
+            <div class="event_name">
+                    PIXEL QUEST
+            </div>
+                <a href="/logout" class="logout">logout</a>
+            </nav>
+            <div class="profile_page">
+                <div class="inner_profile">
+                   <div class="top">
+                    <div class="left_profile">
+                        <div class="user_pic">
+                            <%= team.team_name[0] %>
+                        </div>
+                        <div class="user_name">
+                            <h3><%= team.team_name %></h3>
+                        </div>
+                    </div>
+                    <div class="right_profile">
+                        <ul class="details_list">
+                            <li class="details">
+                                <div class="inner_detail score">
+                                    <label>Score</label>
+                                    <p class="value"><%= team.score %></p>
+                                </div>
+                                <div class="inner_detail Attempts">
+                                    <label>Attempts</label>
+                                    <p class="value"><%= team.attempts %></p>
+                                </div>
+                            </li>
+                            <li class="details">
+                                <div class="inner_detail image_found">
+                                    <label>No Of Images Found</label>
+                                    <p class="value"><%= team.images_found %></p>
+                                </div>
+                                <div class="inner_detail time_taken">
+                                    <label>Total time taken</label>
+                                    <p class="value">30 mins - 00 sec</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                   </div>
+                    <div class="buttom">
+                        <li class="details ">
+                            <div class="inner_detail image_found">
+                                <label>Time Taken for each rounds</label>
+                            </div>
+                        </li>
+                        <li class="details first_child">
+                            <div class="inner_detail image_found">
+                                <label>Round 1 Time</label>
+                                <p class="value round1">00:00</p>
+                            </div>
+                            <div class="inner_detail time_taken">
+                                <label>Round 1 Image</label>
+                                <p class="value "><%= team.round1_image.Image_name %></p>
+                            </div>
+                        </li>
+                        <li class="details">
+                            <div class="inner_detail image_found">
+                                <label>Round 2 Time</label>
+                                <p class="value round2">00:00</p>
+                            </div>
+                            <div class="inner_detail time_taken">
+                                <label>Round 2 Image</label>
+                                <p class="value "><%= team.round2_image.Image_name %></p>
+                            </div>
+                        </li>
+                        <li class="details">
+                            <div class="inner_detail image_found">
+                                <label>Round 3 Time</label>
+                                <p class="value round3">00:00</p>
+                            </div>
+                            <div class="inner_detail time_taken">
+                                <label>Round 3 Image</label>
+                                <p class="value "><%= team.round3_image.Image_name %></p>
+                            </div>
+                        </li>
+                    </div>
+                    <div class="history">
+                        <ul class="login_history">
+                            <li class="title">Login History</li>
+                            <% team.login_punches.forEach(punch => { %>
+                                <li class="timings"><%= punch %></li>
+                            <% }); %>                                
+                        </ul>
+                        <ul class="logout_history">
+                            <li class="title">Logout History</li>
+                            <% team.logout_punches.forEach(punch => { %>
+                                <li class="timings"><%= punch %></li>
+                            <% }); %>   
+                        </ul>
+                    </div>
+                </div>
+                <input type="hidden" id="round1" value="<%= team.round1_time %>">
+                <input type="hidden" id="round2" value="<%= team.round2_time %>">
+                <input type="hidden" id="round3" value="<%= team.round3_time %>">
+            </div>
+        <% } else { %>
+            somwthing went wrong ... <a href="/login">login again</a>
+        <% } %>
+    </div>
+    <script>
+                    // Function to convert time in HH:MM format to minutes
+        function timeToMinutes(time) {
+            var parts = time.split(':');
+            console.log( parseInt(parts[0]) *   + parseInt(parts[1]));
+            return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+        }
+        
+        // Function to convert minutes to HH:MM format
+        function minutesToTime(minutes) {
+            var hours = Math.floor(minutes / 60);
+            var mins = minutes % 60;
+            console.log(hours)
+            console.log(mins)
+            return (hours < 10 ? '0' : '') + hours + ' mins - ' + (mins < 10 ? '0' : '') + mins +" secs";
+        }
+        
+        // Round times
+        var round1_time = document.getElementById("round1").value;
+        var round2_time = document.getElementById("round2").value;
+        var round3_time = document.getElementById("round3").value;
+        console.log(round1_time);
+        console.log(round2_time);
+        console.log(round3_time);
+        
+        // Convert each round's time to minutes
+        var round1_minutes = timeToMinutes(round1_time);
+        var round2_minutes = timeToMinutes(round2_time);
+        var round3_minutes = timeToMinutes(round3_time);
+        
+        // Calculate total time in minutes
+        var total_minutes = round1_minutes + round2_minutes + round3_minutes;
+        
+        // Subtract 30 minutes from the total
+        var adjusted_total_minutes = 2700 - total_minutes ;
+        var round1_calc =  900  - round1_minutes ;
+        var round2_calc =  900  - round2_minutes ;
+        var round3_calc =  900  - round3_minutes ;
+        
+        // Convert adjusted total time to HH:MM format
+        var adjusted_time = minutesToTime(adjusted_total_minutes);
+        var round1_result = minutesToTime(round1_calc);
+        var round2_result = minutesToTime(round2_calc);
+        var round3_result = minutesToTime(round3_calc);
+
+        document.querySelector(".round1").innerHTML = (round1_result);
+        document.querySelector(".round2").innerHTML = (round2_result);
+        document.querySelector(".round3").innerHTML = (round3_result);
+
+        document.querySelector(".time_taken .value").innerHTML = adjusted_time;
+        console.log("Adjusted Total Time:", adjusted_time);
+
+    </script>
+</body>
+</html>

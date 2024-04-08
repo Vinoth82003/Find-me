@@ -1,0 +1,263 @@
+[
+  {
+    "question": "#include <stdio.h>\n#include <stdlib.h>\ntypedef struct {\n    int *array;\n    size_t size;\n    size_t writeIndex;\n    size_t readIndex;\n    int isFull;\n} CircularBuffer;\nvoid initBuffer(CircularBuffer *cb, size_t size) {\n    cb->array = (int *)malloc(size * sizeof(int));\n    if (cb->array == NULL) {\n        // Handle error\n        fprintf(stderr, \"Memory allocation failed\\n\");\n        exit(EXIT_FAILURE);\n    }\n    cb->size = size;\n    cb->writeIndex = 0;\n    cb->readIndex = 0;\n    cb->isFull = 0;\n}\nvoid writeBuffer(CircularBuffer *cb, int value) {\n    cb->array[cb->writeIndex] = value;\n    cb->writeIndex = (cb->writeIndex + 1) % cb->size;\n    if (cb->writeIndex == cb->readIndex) {\n        cb->isFull = 1;\n    }\n}\nint readBuffer(CircularBuffer *cb, int *value) {\n    if (!cb->isFull && cb->readIndex == cb->writeIndex) {\n        return -1; // Buffer is empty\n    }\n    *value = cb->array[cb->readIndex];\n    cb->readIndex = (cb->readIndex + 1) % cb->size;\n    cb->isFull = 0;\n    return 0; // Success\n}\nvoid freeBuffer(CircularBuffer *cb) {\n    free(cb->array);\n    cb->array = NULL;\n    cb->size = 0;\n    cb->writeIndex = 0;\n    cb->readIndex = 0;\n    cb->isFull = 0;\n}\nint main() {\n    CircularBuffer cb;\n    int bufferSize = 5;\n    initBuffer(&cb, bufferSize);\n    for (int i = 1; i <= 6; ++i) {\n        writeBuffer(&cb, i);\n        printf(\"Written: %d\\n\", i);\n    }\n\n    int value;\n    while (readBuffer(&cb, &value) != -1) {\n        printf(\"Read: %d\\n\", value);\n    }\n     freeBuffer(&cb);\n\n    return 0;\n}",
+    "output": "Written: 1\nWritten: 2\nWritten: 3\nWritten: 4\nWritten: 5\nWritten: 6\nRead: 6",
+    "A": "Written: 6\nWritten: 5\nWritten: 4\nWritten: 3\nWritten: 2\nWritten: 1\nRead: 1",
+    "B": "Written: 6\nWritten: 5\nWritten: 3\nWritten: 4\nWritten: 2\nWritten: 1\nRead: 6",
+    "C": "Written: 1\nWritten: 2\nWritten: 3\nWritten: 4\nWritten: 5\nWritten: 6\nRead: 6",
+    "D": "Written: 6\nWritten: 5\nWritten: 4\nWritten: 1\nWritten: 5\nWritten: 2\nRead: 1",
+    "answer": "C"
+  },
+  {
+    "question": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <ctype.h> // For toupper function\n\nint isVowel(char c) {\n    char lower = tolower(c);\n    return lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u';\n}\n\nchar* transformString(char *str) {\n    size_t len = strlen(str);\n    size_t newLen = 1; // Start at 1 for the null terminator\n\n    for (size_t i = 0; i < len; ++i) {\n        if (!isVowel(str[i])) {\n            newLen += 2; // Duplicate consonants\n        } else {\n            newLen += 1;\n        }\n    }\n\n    char *newStr;\n    if (newLen <= len + 1) { // +1 for null terminator\n        newStr = str; // Modify in place\n    } else {\n        newStr = (char*)malloc(newLen * sizeof(char));\n        if (newStr == NULL) {\n            fprintf(stderr, \"Memory allocation failed\\n\");\n            exit(EXIT_FAILURE);\n        }\n    }\n\n    size_t j = 0;\n    for (size_t i = 0; i < len; ++i) {\n        if (!isVowel(str[i])) {\n            newStr[j++] = str[i];\n            newStr[j++] = str[i]; // Duplicate consonants\n        } else {\n            newStr[j++] = toupper(str[i]); // Uppercase vowels\n        }\n    }\n    newStr[j] = '\\0'; // Null-terminate the new string\n\n    return newStr;\n}\nint main() {\n    char inputStr[] = \"dynamic programming\";\n    char *transformedStr = transformString(inputStr);\n\n    printf(\"Original: %s\\n\", inputStr);\n    printf(\"Transformed: %s\\n\", transformedStr);\n    if (transformedStr != inputStr) {\n        free(transformedStr);\n    }\n\n    return 0;\n}",
+    "output": "Original: dynamic programming\nTransformed: ddyynnAmmIcc  pprrOggrrAmmmmInngg",
+    "A": "Original: dynamic programming\nTransformed: ddyYnnAmmIc  pprrOggrrAMMMInngg",
+    "B": "Original: dynamic programming\nTransformed: ddyynnAmmIcc  pprrOggrrAmmmmInngg",
+    "C": "Original: dynamic programming\nTransformed: ddynnAmIccC  prOgrrAmmmmInnggG",
+    "D": "Original: dynamic programming\nTransformed: ddynnAAamIiccC  prOOgrrAmmNInnggG",
+    "answer": "B"
+  },
+  {
+    "question": "#include <stdio.h>\n\nvoid foo();\nvoid bar();\nvoid baz();\n\nint main() {\n    void (*funcArray[])() = {foo, bar, baz};\n    unsigned int i;\n    char *p = (char *) &i;\n\n    p[0] = 2; \n    p[1] = 0;\n    p[2] = 0;\n    p[3] = 0;\n\n    (*funcArray[i])();\n\n    return 0;\n}\n\nvoid foo() {\n    printf(\"Foo called\\n\");\n}\n\nvoid bar() {\n    printf(\"Bar called\\n\");\n}\n\nvoid baz() {\n    printf(\"Baz called\\n\");\n}",
+    "output": "Baz called",
+    "A": "Foo called",
+    "B": "Bar called",
+    "C": "Baz called",
+    "D": "All of these",
+    "answer": "C"
+  },
+  {
+    "question": "#include <stdio.h>\n\nvoid mysteryFunction(int *array, int n) {\n    int i;\n    for (i = 0; i < n; i++) {\n        *(array + i) = i ^ *(array + i);\n    }\n}\n\nint main() {\n    int array[] = {1, 2, 3, 4, 5};\n    int n = sizeof(array) / sizeof(array[0]);\n\n    mysteryFunction(array, n);\n\n    printf(\"Modified array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", array[i]);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "output": "Modified array: 1 3 1 7 1",
+    "A": "Modified array: 1 3 1 7 1",
+    "B": "Modified array: 3 1 7 1 2",
+    "C": "Modified array: 1 2 4 7 2",
+    "D": "Modified array: 1 2 4 6 3",
+    "answer": "A"
+  },
+  {
+    "question": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    char str[] = \"IRON MAN\";\n\n    int index = 0;\n    while (str[index] != '\\0') {\n        str[index] = (char)(str[index] + (int)sqrt(index));\n        index++;\n    }\n    char *start = str;\n    char *end = str + strlen(str) - 1;\n    while (start < end) {\n        char temp = *start;\n        *start = *end;\n        *end = temp;\n        start++;\n        end--;\n    }\n    if ((int)str[0] % 2 == 0) {\n        printf(\"%s\\n\", str);\n    }\n\n    return 0;\n}",
+    "output": "PCO\"OPSI",
+    "A": "PCO\"OPOO",
+    "B": "POH\"OPSE",
+    "C": "PCO\"OPSI",
+    "D": "PGO\"OPCI",
+    "answer": "C"
+  },
+  {
+    "question": "#include <stdio.h>\n\nint main() {\n    \n    int x = 7, y = 4;\n    int z = ~(x & y) ^ (x | y); \n    x = x ^ y;                 \n    y = z ^ x;                 \n    z = !((y == x) && (x != 0));\n    printf(\"The final value of x is \");\n    for (int i = 0; i < z; i++) {\n        printf(\"%d\", x % 10);\n        x /= 10;\n    }\n    printf(\"\\n\");\n\n    printf(\"The final value of y is %d\\n\", y * 2 - 1);\n\n    return 0;\n}",
+    "output": "The final value of x is 3\nThe final value of y is -3",
+    "A": "The final value of x is 6\nThe final value of y is -5",
+    "B": "The final value of x is 3\nThe final value of y is -3",
+    "C": "The final value of x is 4\nThe final value of y is -3",
+    "D": "The final value of x is 3\nThe final value of y is -4",
+    "answer": "B"
+  },
+  {
+    "question": "#include <stdio.h>\n#include <string.h>\n\n#define MAX_LENGTH 10\nvoid generateCombinations(char set[], int n, char combination[], int index, int start) {\n    printf(\"%s\\n\", combination);\n    for (int i = start; i < n; i++) {\n        combination[index] = set[i];\n        combination[index + 1] = '\\0';\n        generateCombinations(set, n, combination, index + 1, i + 1);\n    }\n}\n\nint main() {\n    char set[] = \"abc\";\n    int n = strlen(set);\n\n    char combination[MAX_LENGTH];\n\n    printf(\"All possible combinations of the set:\\n\");\n    generateCombinations(set, n, combination, 0, 0);\n\n    return 0;\n}",
+    "output": "a\nab\nabc\nac\nb\nbc\nc",
+    "A": "a\nac\nabc\naa\nbc\nba\nc",
+    "B": "a            ab\nabc\nac\nb\nbc\nc",
+    "C": "a\ncc\nabc\nac\nb\nbc\nc",
+    "D": "a\nab\nabb\nac\nca\nbc\nc",
+    "answer": "B"
+  },
+  {
+    "question": "#include <stdio.h>\n\nint i = 1;\n\nint counter1(){\n     i = i * 3;\n     printf( \"counter1()\\n\");\n     return i;\n}\n\nint counter2(){\n     i = i * 5;\n     printf( \"counter2()\\n\");\n     return i;\n}\n\nint foo(int i, int j){\n    return i + j;\n}\n\nint main(){\n   int x;\n   for (x=0; x<2; ++x) {\n       printf(\"%d\\n\", foo(counter1(), counter2()));\n   }\n\n   return 0;\n}",
+    "output": "counter2()\ncounter1()\n20\ncounter2()\ncounter1()\n300",
+    "A": "counter2()\ncounter1()\n20\ncounter2()\ncounter1()\n200",
+    "B": "counter2()\ncounter1()\n10\ncounter2()\ncounter1()\n200",
+    "C": "counter2()\ncounter1()\n20\ncounter2()\ncounter1()\n300",
+    "D": "counter2()\ncounter1()\n20\ncounter2()\ncounter1()\n300",
+    "answer": "D"
+  },
+  {
+    "question": "#include <stdio.h>\n\nint findSingle(int arr[], int n) {\n    int ones = 0, twos = 0;\n\n    int common_bit_mask;\n    for (int i = 0; i < n; i++) {\n        twos = twos | (ones & arr[i]);\n        ones = ones ^ arr[i];\n        common_bit_mask = ~(ones & twos);\n        ones &= common_bit_mask;\n        twos &= common_bit_mask;\n    }\n\n    return ones;\n}\n\nint main() {\n    int arr[] = {3, 3, 2, 3};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    printf(\"The element with single occurrence is %d\\n\", findSingle(arr, n));\n    return 0;\n}",
+    "output": "The element with single occurrence is 2",
+    "A": "The element with single occurrence is 3",
+    "B": "The element with single occurrence is 4",
+    "C": "The element with single occurrence is 2",
+    "D": "The element with single occurrence is 7",
+    "answer": "C"
+  },
+  {
+    "question": "#include <stdio.h>\n#include <stdlib.h>\nstruct Interval {\n    int start;\n    int end;\n};\nint compareIntervals(const void *a, const void *b) {\n    return ((struct Interval*)a)->start - ((struct Interval*)b)->start;\n}\n\nvoid mergeIntervals(struct Interval intervals[], int n) {\n    if (n <= 0) return;\n    qsort(intervals, n, sizeof(struct Interval), compareIntervals);\n    int index = 0; \n    for (int i = 1; i < n; i++) {\n        if (intervals[index].end >= intervals[i].start) {\n            intervals[index].end = (intervals[index].end > intervals[i].end) ? intervals[index].end : intervals[i].end;\n        } else {\n            index++;\n            intervals[index] = intervals[i];\n        }\n    }\n    printf(\"Merged Intervals: \");\n    for (int i = 0; i <= index; i++) {\n        printf(\"[%d, %d] \", intervals[i].start, intervals[i].end);\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    struct Interval intervals[] = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};\n    int n = sizeof(intervals) / sizeof(intervals[0]);\n\n    printf(\"Original Intervals: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"[%d, %d] \", intervals[i].start, intervals[i].end);\n    }\n    printf(\"\\n\");\n\n    mergeIntervals(intervals, n);\n\n    return 0;\n}",
+    "output": "Original Intervals: [1, 3] [2, 6] [8, 10] [15, 18] \nMerged Intervals: [1, 6] [8, 10] [15, 18]",
+    "A": "Original Intervals: [1, 3] [2, 6] [8, 10] [15, 18] \nMerged Intervals: [1, 6] [8, 10] [15, 18]",
+    "B": "Original Intervals: [1, 2] [2, 6] [7, 10] [15, 18] Original Intervals: [1, 2] [2, 6] [8, 10] [15, 18] \nMerged Intervals: [1, 2] [8, 10] [15, 18]",
+    "C": "Original Intervals: [1, 3] [4, 6] [8, 10] [15, 18] \nMerged Intervals: [1, 6] [8, 11] [15, 8]",
+    "D": "Original Intervals: [1, 3] [2, 4] [8, 11] [5, 18] \nMerged Intervals: [1, 6] [8, 10] [15, 18]",
+    "answer": "A"
+  },
+  {
+    "question": "#include <stdio.h>\n\nvoid mystery(int n) {\n    if (n > 1) {\n        mystery(n / 2);\n        mystery(n / 2);\n    }\n    printf(\"%d \", n);\n}\n\nint main() {\n    mystery(4);\n    return 0;\n}",
+    "output": "1 1 2 1 1 2 4",
+    "A": "3 1 2 1 2 2 4",
+    "B": "1 2 1 1 2 2 3",
+    "C": "1 1 2 3 1 2 4",
+    "D": "1 1 2 1 1 2 4",
+    "answer": "D"
+  },
+  {
+    "question": "#include<stdio.h>\nmain()\n{\n      int i=5;\n      printf(\"%d\",++i + ++i + ++i);\n}",
+    "output": 22,
+    "A": 22,
+    "B": 46,
+    "C": 31,
+    "D": 15,
+    "answer": "A"
+  },
+  {
+    "question": "#include <stdio.h>\n#include <stdbool.h> \n#include <limits.h>\n\n#define V 9\n\nint minDistance(int dist[], bool sptSet[]) {\n    int min = INT_MAX, min_index;\n\n    for (int v = 0; v < V; v++)\n        if (sptSet[v] == false && dist[v] <= min)\n            min = dist[v], min_index = v;\n\n    return min_index;\n}\n\nvoid printSolution(int dist[], int n) {\n    printf(\"Vertex   Distance from Source\\n\");\n    for (int i = 0; i < V; i++)\n        printf(\"%d \\t\\t %d\\n\", i, dist[i]);\n}\n\nvoid dijkstra(int graph[V][V], int src) {\n    int dist[V];\n    bool sptSet[V];\n\n    for (int i = 0; i < V; i++)\n        dist[i] = INT_MAX, sptSet[i] = false;\n\n    dist[src] = 0;\n\n    for (int count = 0; count < V - 1; count++) {\n        int u = minDistance(dist, sptSet);\n        sptSet[u] = true;\n\n        for (int v = 0; v < V; v++)\n            if (!sptSet[v] && graph[u][v] && dist[u] != INT_MAX && dist[u] + graph[u][v] < dist[v])\n                dist[v] = dist[u] + graph[u][v];\n    }\n\n    printSolution(dist, V);\n}\n\nint main() {\n    int graph[V][V] = {{0, 4, 0, 0, 0, 0, 0, 8, 0},\n                       {4, 0, 8, 0, 0, 0, 0, 11, 0},\n                       {0, 8, 0, 7, 0, 4, 0, 0, 2},\n                       {0, 0, 7, 0, 9, 14, 0, 0, 0},\n                       {0, 0, 0, 9, 0, 10, 0, 0, 0},\n                       {0, 0, 4, 14, 10, 0, 2, 0, 0},\n                       {0, 0, 0, 0, 0, 2, 0, 1, 6},\n                       {8, 11, 0, 0, 0, 0, 1, 0, 7},\n                       {0, 0, 2, 0, 0, 0, 6, 7, 0}};\n\n    dijkstra(graph, 0);\n\n    return 0;\n}",
+    "output": "0    0\n1    4\n2    12\n3    19\n4    21\n5    11\n6    9\n7    8\n8    14",
+    "A": "0    0\n1    5\n2    14\n3    20\n4    21\n5    11\n6    9\n7    6\n8    14",
+    "B": "0    0\n1    4\n2    12\n3    19\n4    27\n5    11\n6    9\n7    8\n8    12",
+    "C": "0    0\n1    4\n2    12\n3    19\n4    21\n5    11\n6    9\n7    8\n8    14",
+    "D": "0    0\n1    4\n2    12\n3    15\n4    21\n5    11\n6    9\n7    8\n8    14",
+    "answer": "C"
+  },
+  {
+    "question": "#include <stdio.h>\n\nint binarySearch(int arr[], int l, int r, int x) {\n    while (l <= r) {\n        int mid = l + (r - l) / 2;\n\n        if (arr[mid] == x)\n            return mid;\n\n        if (arr[mid] < x)\n            l = mid + 1;\n        else\n            r = mid - 1;\n    }\n\n    return -1;\n}\n\nint main() {\n    int arr[] = {2, 3, 4, 10, 40};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int x = 10;\n    int result = binarySearch(arr, 0, n - 1, x);\n    if (result == -1)\n        printf(\"Element not present in array\\n\");\n    else\n        printf(\"Element found at index %d\\n\", result);\n    return 0;\n}",
+    "output": "Element found at index 3",
+    "A": "Element found at index 4",
+    "B": "Element found at index 3",
+    "C": "Element found at index 5",
+    "D": "Element found at index 2",
+    "answer": "B"
+  },
+  {
+    "question": "#include <stdio.h>\n\nint binarySearch(int arr[], int low, int high, int target) {\n    while (low <= high) {\n        int mid = low + (high - low) / 2;\n        \n        if (arr[mid] == target)\n            return mid;\n        else if (arr[mid] < target)\n            low = mid + 1;\n        else\n            high = mid - 1;\n    }\n\n    return -1; \n}\n\nint findPivot(int arr[], int low, int high) {\n    if (high < low)\n        return -1; \n\n    if (high == low)\n        return low;\n\n    int mid = low + (high - low) / 2;\n\n    if (mid < high && arr[mid] > arr[mid + 1])\n        return mid;\n\n    if (mid > low && arr[mid] < arr[mid - 1])\n        return (mid - 1);\n\n    if (arr[low] >= arr[mid])\n        return findPivot(arr, low, mid - 1);\n    else\n        return findPivot(arr, mid + 1, high);\n}\n\nint pivotedBinarySearch(int arr[], int n, int target) {\n    int pivot = findPivot(arr, 0, n - 1);\n\n    if (pivot == -1)\n        return binarySearch(arr, 0, n - 1, target);\n\n    if (arr[pivot] == target)\n        return pivot;\n\n    if (arr[0] <= target)\n        return binarySearch(arr, 0, pivot - 1, target);\n\n    return binarySearch(arr, pivot + 1, n - 1, target);\n}\n\nint main() {\n    int arr[] = {5, 6, 7, 8, 9, 10, 1, 2, 3};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int target = 3;\n    int index = pivotedBinarySearch(arr, n, target);\n\n    if (index != -1)\n        printf(\"Element %d found at index %d\\n\", target, index);\n    else\n        printf(\"Element %d not found\\n\", target);\n\n    return 0;\n}",
+    "output": "Element 3 found at index 8",
+    "A": "Element 3 found at index 2",
+    "B": "Element 3 found at index 0",
+    "C": "Element 3 found at index 5",
+    "D": "Element 3 found at index 8",
+    "answer": "D"
+  },
+  {
+    "question": "#include <stdio.h>\n\n#define SQUARE(x) x*x\n\nint main() {\n    int a = 5;\n    int b = SQUARE(a + 1);\n    printf(\"%d\\n\", b);\n    return 0;\n}",
+    "output": 11,
+    "A": 11,
+    "B": 12,
+    "C": 13,
+    "D": 14,
+    "answer": "A"
+  },
+  {
+    "question": "#include <stdio.h>\n\n#define STRINGIFY(x) #x\n\nint main() {\n    int num = 434;\n    char* str = STRINGIFY(num);\n    printf(\"%s\\n\", str);\n    return 0;\n}",
+    "output": "num",
+    "A": "mun",
+    "B": "umn",
+    "C": "mnu",
+    "D": "num",
+    "answer": "D"
+  },
+  {
+    "question": "#include <stdio.h>\n\n#define ENCRYPT(str) { \\\n    char *p = str; \\\n    while (*p != '\\0') { \\\n        *p = (*p == 'z') ? 'a' : (*p == 'Z') ? 'A' : (*p >= 'a' && *p < 'z') || (*p >= 'A' && *p < 'Z') ? *p + 1 : *p; \\\n        p++; \\\n    } \\\n}\n\nint main() {\n    char text[] = \"Hello, World!\";\n    ENCRYPT(text);\n    printf(\"%s\\n\", text);\n    return 0;\n}",
+    "output": "Ifmmp, Xpsme!",
+    "A": "Ifmmp, Xpmse!",
+    "B": "Ifmmp, Xpsme!",
+    "C": "Ifmpm, Xpsme!",
+    "D": "Fimmp, Xpsme!",
+    "answer": "B"
+  },
+  {
+    "question": "#include <stdio.h>\n\n#define MAX(x, y) (x > y ? x : y)\n\nint main() {\n    int a = 5;\n    int b = 3;\n    int c = MAX(a++, b++);\n    printf(\"a = %d, b = %d, c = %d\\n\", a, b, c);\n    return 0;\n}",
+    "output": "a = 7, b = 4, c = 6",
+    "A": "a = 7, b = 5, c = 6",
+    "B": "a = 8, b = 4, c = 6",
+    "C": "a = 7, b = 4, c = 5",
+    "D": "a = 7, b = 4, c = 6",
+    "answer": "D"
+  },
+  {
+    "question": "char *str = \"Hello, world!\";\nint main() {\n    char *ptr = str;\n    while (*ptr != '\\0') {\n        printf(\"%c\", *ptr);\n        ptr++;\n    }\n    return 0;\n}",
+    "output": "Hello, world!",
+    "A": "Hello, world!",
+    "B": "Hello world!",
+    "C": "Hello, world",
+    "D": "Hello world",
+    "answer": "A"
+  },
+  {
+    "question": "#include <stdio.h>\n\nint main() {\n  int num1 = 10;\n  float num2 = 5.5;\n  double num3 = 8.999;\n\n  printf(\"Integer Number: %d\\n\", num1);\n  printf(\"Floating Point Number: %f\\n\", num2);\n  printf(\"Double Number: %lf\\n\", num3);\n\n  return 0;\n}",
+    "output": "Integer Number: 10\nFloating Point Number: 5.500000\nDouble Number: 8.999000",
+    "A": "Integer Number: 10\nFloating Point Number: 5.400000\nDouble Number: 8.999000",
+    "B": "Integer Number: 11\nFloating Point Number: 5.500000\nDouble Number: 8.999000",
+    "C": "Integer Number: 10\nFloating Point Number: 5.500000\nDouble Number: 8.999000",
+    "D": "Integer Number: 10\nFloating Point Number: 5.500000\nDouble Number: 8.000",
+    "answer": "C"
+  },
+  {
+    "question": "#include <stdio.h>\n\nvoid swap(int *a, int *b) {\n    *a = *a + *b;\n    *b = *a - *b;\n    *a = *a - *b;\n}\n\nint main() {\n    int x = 10, y = 20;\n\n    printf(\"Before swapping: x = %d, y = %d\\n\", x, y);\n\n    printf(\"After swapping: x = %d, y = %d\\n\", x, y);\n\n    return 0;\n}",
+    "output": "Before swapping: x = 10, y = 20\nAfter swapping: x = 20, y = 10",
+    "A": "Before swapping: x = 10, y = 20\nAfter swapping: x = 30, y = 10",
+    "B": "Before swapping: x = 10, y = 20\nAfter swapping: x = 20, y = 10",
+    "C": "Before swapping: x = 30, y = 20\nAfter swapping: x = 20, y = 10",
+    "D": "Before swapping: x = 10, y = 20\nAfter swapping: x = 20, y = 90",
+    "answer": "B"
+  },
+  {
+    "question": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Interval {\n    int start;\n    int end;\n};\n\nint compareIntervals(const void* a, const void* b) {\n    struct Interval* ia = (struct Interval*)a;\n    struct Interval* ib = (struct Interval*)b;\n    return ia->start - ib->start;\n}\n\nvoid mergeIntervals(struct Interval arr[], int n) {\n    if (n <= 0) {\n        return;\n    }\n\n    qsort(arr, n, sizeof(struct Interval), compareIntervals);\n\n    int index = 0;\n\n    for (int i = 1; i < n; i++) {\n        if (arr[index].end < arr[i].start) {\n            index++;\n            arr[index] = arr[i];\n        } else if (arr[index].end < arr[i].end) {\n            arr[index].end = arr[i].end;\n        }\n    }\n\n    printf(\"The merged intervals are: \");\n    for (int i = 0; i <= index; i++) {\n        printf(\"[%d,%d] \", arr[i].start, arr[i].end);\n    }\n}\n\nint main() {\n    struct Interval arr[] = { {1, 3}, {2, 6}, {8, 10}, {15, 18} };\n    int n = sizeof(arr) / sizeof(arr[0]);\n\n    mergeIntervals(arr, n);\n\n    return 0;\n}",
+    "output": "The merged intervals are: [1,6] [8,10] [15,18]",
+    "A": "The merged intervals are: [1,8] [6,10] [15,18]",
+    "B": "The merged intervals are: [1,6] [8,15] [10,18]",
+    "C": "The merged intervals are: [1,6] [15,10] [15,8]",
+    "D": "The merged intervals are: [1,6] [8,10] [15,18]",
+    "answer": "D"
+  },
+  {
+    "question": "#include <stdio.h>\n#include <stdlib.h>\nstruct Node {\n    int data;\n    struct Node* next;\n};\nvoid insertAtBeginning(struct Node** head_ref, int new_data) {\n    // Allocate memory for new node\n    struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));\n   \n      new_node->data = new_data;\n      new_node->next = *head_ref;\n  \n    *head_ref = new_node;\n}\nvoid displayList(struct Node* node) {\n    while (node != NULL) {\n        printf(\"%d \", node->data);\n        node = node->next;\n    }\n    printf(\"\\n\");\n}\nvoid freeList(struct Node* head) {\n    struct Node* temp;\n    while (head != NULL) {\n        temp = head;\n        head = head->next;\n        free(temp);\n    }\n}\n\nint main() {\n    struct Node* head = NULL;\n    insertAtBeginning(&head, 5);\n    insertAtBeginning(&head, 10);\n    insertAtBeginning(&head, 15);\n    printf(\"Linked List: \");\n    displayList(head);\n    freeList(head);\n    \n    return 0;\n}",
+    "output": "Linked List: 15 10 5",
+    "A": "Linked List: 10 15 5",
+    "B": "Linked List: 5 15 10",
+    "C": "Linked List: 5 10 15",
+    "D": "Linked List: 15 10 5",
+    "answer": "D"
+  },
+  {
+    "question": "#include <stdio.h>\n\nint main() {\n    int num = 10;\n    int *ptr;\n    ptr = &num;\n    printf(\"Value of num: %d\\n\", *ptr);\n    *ptr = 20;\n    printf(\"New value of num: %d\\n\", num);\n\n    return 0;\n}",
+    "output": "Value of num: 10\nNew value of num: 20",
+    "A": "Value of num: 10\nNew value of num: 20",
+    "B": "Value of num: 20\nNew value of num: 10",
+    "C": "Value of num: 10\nNew value of num: 10",
+    "D": "Value of num: 20\nNew value of num: 20",
+    "answer": "A"
+  },
+  {
+    "question": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n, i, *arr;\n    printf(\"Enter the size of the array: \");\n    scanf(\"%d\", &n);\n    arr = (int *)malloc(n * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed\\n\");\n        return 1; \n    }\n    printf(\"Enter %d elements:\\n\", n);\n    for (i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    printf(\"Elements of the array: \");\n    for (i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n    free(arr);\n\n    return 0;\n}",
+    "output": "Enter the size of the array: 4\nEnter 4 elements:\nsu@m\nElements of the array: 0 0 0 0",
+    "A": "Enter the size of the array: 4\nEnter 4 elements:\nsu@m\nElements of the array: s u @ m",
+    "B": "Enter the size of the array: 4\nEnter 4 elements:\nsu@m\nElements of the array: 0 0 0 0",
+    "C": "Enter the size of the array: 4\nEnter 4 elements:\nsu@m\nElements of the array: s @ m u",
+    "D": "Enter the size of the array: 4\nEnter 4 elements:\nsu@m\nElements of the array: @ s u m",
+    "answer": "B"
+  },
+  {
+    "question": "#include <stdio.h>\nint binarySearch(int arr[], int left, int right, int target) {\n    while (left <= right) {\n        int mid = left + (right - left) / 2;\n        if (arr[mid] == target)\n            return mid;\n        if (arr[mid] < target)\n            left = mid + 1;\n        else\n            right = mid - 1;\n    }\n    return -1;\n}\n\nint main() {\n    int arr[] = {2, 3, 4, 10, 40, 6, 7};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int target = 10;\n    int result = binarySearch(arr, 0, n - 1, target);\n    if (result == -1)\n        printf(\"Element is not present in array\\n\");\n    else\n        printf(\"Element is present at index %d\\n\", result);\n    return 0;\n}",
+    "output": "Element is present at index 3",
+    "A": "Element is not present in the array",
+    "B": "Element is present at index 8",
+    "C": "Element is present at index 2",
+    "D": "Element is present at index 3",
+    "answer": "D"
+  },
+  {
+    "question": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char source[] = \"Hi This is panimalar Information technology!\";\n    char destination[20];\n    strcpy(destination, source);\n    printf(\"Destination string: %s\\n\", destination);\n    int length = strlen(destination);\n    printf(\"Length of destination string: %d\\n\", length);    return 0;\n}",
+    "output": "Length of destination string: 44",
+    "A": "Length of destination string: 44",
+    "B": "Length of destination string: 43",
+    "C": "Length of destination string: 41",
+    "D": "Length of destination string: 34",
+    "answer": "A"
+  },
+  {
+    "question": "int ages[] = {20, 22, 18, 35, 48, 26, 87, 70};\nint length = sizeof(ages) / sizeof(ages[0]);\nint lowestAge = ages[0];\nfor (int i = 0; i < length; i++) {\n  if (lowestAge > ages[i]) {\n    lowestAge = ages[i];\n  }\n}",
+    "output": "The lowest age in the array is: 18",
+    "A": "The lowest age in the array is: 20",
+    "B": "The lowest age in the array is: 48",
+    "C": "The lowest age in the array is: 18",
+    "D": "The lowest age in the array is: 35",
+    "answer": "C"
+  }
+]

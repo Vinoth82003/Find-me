@@ -1,0 +1,427 @@
+[
+  {
+    "question": "def generate_random_numbers():\n    return 54, 32\n\ndef complex_operation(a, b):\n    result = ((a * 2 + b) / 2) ** 3 - (a + b) * 5\n    return result\n\nif __name__ == \"__main__\":\n    num1, num2 = generate_random_numbers()\n    output = complex_operation(num1, num2)\n    print(\"Output of Complex Operation:\", output)",
+    "output": 342570,
+    "A": 342568,
+    "B": 342569,
+    "C": 342570,
+    "D": 342571,
+    "answer": "C"
+  },
+  {
+    "question": "def generate_random_numbers():\n    return 54, 32\n\ndef complex_operation(a, b):\n    result = ((a * 2 + b) / 2) ** 3 - (a + b) * 5\n    return result\n\nif __name__ == \"__main__\":\n    num1, num2 = generate_random_numbers()\n    output = complex_operation(num1, num2)\n    print(\"Output of Complex Operation:\", output)",
+    "output": 14,
+    "A": 14,
+    "B": 14,
+    "C": 14,
+    "D": 14,
+    "answer": "A"
+  },
+  {
+    "question": "def generate_random_numbers():\n    return 54, 32\n\ndef complex_operation(a, b):\n    result = ((a * 2 + b) / 2) ** 3 - (a + b) * 5\n    return result\n\nif __name__ == \"__main__\":\n    num1, num2 = generate_random_numbers()\n    output = complex_operation(num1, num2)\n    print(\"Output of Complex Operation:\", output)",
+    "output": 24,
+    "A": 24,
+    "B": 24,
+    "C": 24,
+    "D": 24,
+    "answer": "A"
+  },
+  {
+    "question": "def generate_random_numbers():\n    return 54, 32\n\ndef complex_operation(a, b):\n    result = ((a * 2 + b) / 2) ** 3 - (a + b) * 5\n    return result\n\nif __name__ == \"__main__\":\n    num1, num2 = generate_random_numbers()\n    output = complex_operation(num1, num2)\n    print(\"Output of Complex Operation:\", output)",
+    "output": "WEST",
+    "A": "WEST",
+    "B": "WEST",
+    "C": "WEST",
+    "D": "WEST",
+    "answer": "B"
+  },
+  {
+    "question": "def generate_random_numbers():\n    return 54, 32\n\ndef complex_operation(a, b):\n    result = ((a * 2 + b) / 2) ** 3 - (a + b) * 5\n    return result\n\nif __name__ == \"__main__\":\n    num1, num2 = generate_random_numbers()\n    output = complex_operation(num1, num2)\n    print(\"Output of Complex Operation:\", output)",
+    "output": "TRUE",
+    "A": "both TRUE and FALSE",
+    "B": "Neither TRUE nor FALSE",
+    "C": "FALSE",
+    "D": "TRUE",
+    "answer": "D"
+  },
+  {
+    "question": "def generate_random_numbers():\n    return 54, 32\n\ndef complex_operation(a, b):\n    result = ((a * 2 + b) / 2) ** 3 - (a + b) * 5\n    return result\n\nif __name__ == \"__main__\":\n    num1, num2 = generate_random_numbers()\n    output = complex_operation(num1, num2)\n    print(\"Output of Complex Operation:\", output)",
+    "output": [
+      11,
+      10,
+      9,
+      8,
+      7,
+      4
+    ],
+    "A": [
+      11,
+      10,
+      9,
+      6,
+      7,
+      4
+    ],
+    "B": [
+      11,
+      10,
+      9,
+      8,
+      7,
+      3
+    ],
+    "C": [
+      11,
+      10,
+      9,
+      8,
+      7,
+      4
+    ],
+    "D": [
+      11,
+      12,
+      9,
+      8,
+      7,
+      4
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "def generate_random_numbers():\n    return 54, 32\n\ndef complex_operation(a, b):\n    result = ((a * 2 + b) / 2) ** 3 - (a + b) * 5\n    return result\n\nif __name__ == \"__main__\":\n    num1, num2 = generate_random_numbers()\n    output = complex_operation(num1, num2)\n    print(\"Output of Complex Operation:\", output)",
+    "output": "abc e",
+    "A": "abc g",
+    "B": "abc f",
+    "C": "abc e",
+    "D": "abc d",
+    "answer": "C"
+  },
+  {
+    "question": "def foo(x):\n    if x > 5:\n        return x * 2\n    else:\n        return x * 3\n\ndef bar(y):\n    return y + 10\n\ndef baz(z):\n    return z - 5\n\ndef main():\n    num = 9\n    result = foo(num) + bar(num) - baz(num)\n    print(\"Result:\", result)\n\nif __name__ == \"__main__\":\n    main()",
+    "output": 33,
+    "A": 32,
+    "B": 33,
+    "C": 34,
+    "D": 35,
+    "answer": "B"
+  },
+  {
+    "question": "def mystery_func(x):\n    return x * 2 - 1\n\nresult = [mystery_func(x) for x in range(5)]\nprint(result[result[1]])",
+    "output": 1,
+    "A": 3,
+    "B": 2,
+    "C": 0,
+    "D": 1,
+    "answer": "D"
+  },
+  {
+    "question": "def mysterious_function(n):\n    return n + 2 * n // 3 - (n % 2) + (n % 5)\n\ndef main():\n    numbers = [1, 5, 10, 15, 20]\n\n    result = map(mysterious_function, numbers)\n    sorted_result = sorted(result, reverse=True)\n\n    final_output = sum(filter(lambda x: x % 3 != 0, sorted_result))\n\n    print(f\"The mysterious output is: {final_output}\")\n\nif __name__ == \"__main__\":\n    main()",
+    "output": 70,
+    "A": 70,
+    "B": 71,
+    "C": 72,
+    "D": 73,
+    "answer": "A"
+  },
+  {
+    "question": "def mystery(x):\n    if x < 0:\n        return x\n    else:\n        return mystery(x - 1) + x\n\nresult = mystery(5)\nprint(result)",
+    "output": 14,
+    "A": 11,
+    "B": 12,
+    "C": 13,
+    "D": 14,
+    "answer": "D"
+  },
+  {
+    "question": "def encrypt(text):\n    encrypted_text = ''\n    for char in text:\n        encrypted_text += chr(ord(char) + 3)\n    return encrypted_text\n\nif __name__ == \"__main__\":\n    user_input = \"Hi This is Aadhi\"\n    encrypted_string = encrypt(user_input)\n\n    print(\"Encrypted String:\", encrypted_string)",
+    "output": "Kl#Wklv#lv#Ddgkl",
+    "A": "Kl#Gklv#lv#Ddgkl",
+    "B": "Kl#Wklv#lv#Ddgkl",
+    "C": "Kl#Wklv#lv#Ddgkd",
+    "D": "Kl#Wklv#lv#Ddgkg",
+    "answer": "B"
+  },
+  {
+    "question": "def test_1(string =\"\"): \n       \n    substring = \"\"  \n    testList = [] \n    initial = 0\n       \n    for char in string: \n           \n        for i in range(initial, len(string)): \n            substring+= string[i] \n               \n \n            if substring.count(string[i])>1: \n                testList.append(substring[:-1]) \n                initial+= 1\n                substring = \"\" \n                break\n    maxi =\"\" \n       \n    for word in testList: \n           \n        if len(word)>len(maxi): \n            maxi = word \n               \n    if len(maxi)<3: \n        return \"-1\"\n    else: \n        return maxi \n       \nprint(test_1(\"character\")) \nprint(test_1(\"standfan\")) \nprint(test_1(\"class\"))",
+    "output": "racte\nstandf\nclass",
+    "A": "racte\nstandf\nclass",
+    "B": "racte\nstandf\nclasses",
+    "C": "racte\nstandg\nclass",
+    "D": "racta\nstandf\nclass",
+    "answer": "A"
+  },
+  {
+    "question": "def diag(matrix):\n    n = len(matrix)\n    left_to_right_sum = 0\n    right_to_left_sum = 0\n    for i in range(n):\n        left_to_right_sum += matrix[i][i]\n    for i in range(n):\n        right_to_left_sum += matrix[i][n-i-1]\n    abs_difference = abs(left_to_right_sum - right_to_left_sum)\n    return abs_difference\n\ndef main():\n    matrix = [\n        [1, 2, 3],\n        [4, 5, 6],\n        [9, 8, 9]\n    ]    \n    result = diag(matrix)\n    print(result)\n\nif __name__ == \"__main__\":\n    main()",
+    "output": 2,
+    "A": 0,
+    "B": 1,
+    "C": 2,
+    "D": 3,
+    "answer": "C"
+  },
+  {
+    "question": "def creating_gen(index):  \n    months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']  \n    yield months[index]  \n    yield months[index+2]  \nnext_month = creating_gen(3)  \nprint(next(next_month), next(next_month))  ",
+    "output": "apr jun",
+    "A": "oct nov",
+    "B": "aug sep",
+    "C": "jan feb",
+    "D": "apr jun",
+    "answer": "D"
+  },
+  {
+    "question": "total = 0\nfor i in range(1, 51):\n    total += i\nprint(total)",
+    "output": 1275,
+    "A": 1274,
+    "B": 1272,
+    "C": 1275,
+    "D": 1278,
+    "answer": "C"
+  },
+  {
+    "question": "expression = \"\"3**2+67*63/45\"\"\n\nexpression = expression.replace('x', '*')\n\nresult = eval(''.join(char for char in expression if char.isdigit() or char in ['+', '-', '*', '/', '.']))\n\nprint(\"\"Output:\"\", result)",
+    "output": 102.8,
+    "A": 102.8,
+    "B": 102.7,
+    "C": 102.3,
+    "D": 102.5,
+    "answer": "A"
+  },
+  {
+    "question": "from functools import reduce\n\nnumbers = range(1, 11)\nproduct_of_evens = reduce(lambda x, y: x * y, [num for num in numbers if num % 2 == 0])\nprint(product_of_evens)",
+    "output": 3840,
+    "A": 3838,
+    "B": 3840,
+    "C": 3845,
+    "D": 3847,
+    "answer": "B"
+  },
+  {
+    "question": "def matrix_multiply(a, b):\n    return [\n        [a[0][0]*b[0][0] + a[0][1]*b[1][0], a[0][0]*b[0][1] + a[0][1]*b[1][1]],\n        [a[1][0]*b[0][0] + a[1][1]*b[1][0], a[1][0]*b[0][1] + a[1][1]*b[1][1]]\n    ]\n\ndef matrix_power(matrix, exponent):\n    result = [[1, 0], [0, 1]]  # Identity matrix\n    while exponent > 0:\n        if exponent % 2 == 1:\n            result = matrix_multiply(result, matrix)\n        matrix = matrix_multiply(matrix, matrix)\n        exponent //= 2\n    return result\n\ndef fibonacci(n):\n    if n == 0:\n        return 0\n    base_matrix = [[1, 1], [1, 0]]\n    result_matrix = matrix_power(base_matrix, n - 1)\n    return result_matrix[0][0]\n\n# Calculate the 10th Fibonacci number\nnth_fibonacci = fibonacci(10)\nprint(\"\"10th Fibonacci number:\"\", nth_fibonacci)",
+    "output": 55,
+    "A": 52,
+    "B": 53,
+    "C": 54,
+    "D": 55,
+    "answer": "D"
+  },
+  {
+    "question": "import math\n\ndef generate_numbers(n):\n    numbers = []\n    for i in range(2, n+2):\n        numbers.append(int(math.sqrt(i**3) + 0.5)) \n    return numbers\nresult = generate_numbers(5)\nprint(result)",
+    "output": [
+      3,
+      5,
+      8,
+      11,
+      15
+    ],
+    "A": [
+      3,
+      5,
+      8,
+      11,
+      15
+    ],
+    "B": [
+      4,
+      5,
+      8,
+      11,
+      15
+    ],
+    "C": [
+      3,
+      5,
+      8,
+      12,
+      15
+    ],
+    "D": [
+      3,
+      5,
+      9,
+      11,
+      15
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "r = lambda q: q * 2\ns = lambda q: q * 3\na = lambda q: q * 4\nb = lambda q: q * 5\nc = lambda q: q * 6\nd = lambda q: q * 7\nx = 2\nx = r(x) \nx = s(x) \nx = r(x)\nx = a(x)\nx = b(x)\nx = c(x)\nx = d(x)\nprint (x)",
+    "output": 20160,
+    "A": 20161,
+    "B": 20160,
+    "C": 20165,
+    "D": 20162,
+    "answer": "B"
+  },
+  {
+    "question": "a = True\nb = False\nc = False\n  \nif not a or b: \n    print (1) \nelif not a or not b and c: \n    print (2) \nelif not a or b or not b and a: \n    print (3) \nelse: \n    print (4)",
+    "output": 3,
+    "A": 4,
+    "B": 5,
+    "C": 2,
+    "D": 3,
+    "answer": "D"
+  },
+  {
+    "question": "count = 1 \n  \ndef doThis(): \n  \n    global count \n  \n    for i in (1, 2, 3):  \n        count += 1\n  \ndoThis() \n  \nprint (count)",
+    "output": 4,
+    "A": 2,
+    "B": 9,
+    "C": 4,
+    "D": 8,
+    "answer": "C"
+  },
+  {
+    "question": "class Pani: \n    def __init__(self, id): \n        self.id = id\n  \nmanager = Pani(100) \n  \nmanager.__dict__['life'] = 49\n  \nprint (manager.life + len(manager.__dict__))",
+    "output": 51,
+    "A": 51,
+    "B": 52,
+    "C": 53,
+    "D": 54,
+    "answer": "A"
+  },
+  {
+    "question": "nameList = ['Harsh', 'Pratik', 'Bob', 'Dhruv'] \nprint(nameList[1][-1])",
+    "output": "k",
+    "A": "k",
+    "B": "o",
+    "C": "B",
+    "D": "s",
+    "answer": "A"
+  },
+  {
+    "question": "def thrive(n):\n if n % 15 == 0:\n   print(\"thrive\", end = “ ”)\n elif n % 3 != 0 and n % 5 != 0:\n   print(\"neither\", end = “ ”)\n elif n % 3 == 0:\n   print(\"three\", end = “ ”)\n elif n % 5 == 0:\n   print(\"five\", end = “ ”)\nthrive(35)\nthrive(56)\nthrive(15)\nthrive(39)",
+    "output": "five neither thrive three",
+    "A": "three neither thrive three",
+    "B": "five neither thrive five",
+    "C": "five neither thrive three",
+    "D": "three neither thrive five",
+    "answer": "C"
+  },
+  {
+    "question": "def gfgFunction(): \n    \"Panimalar is the Best college in Chennai\" \n    return 1\nprint (gfgFunction.__doc__[17:21])",
+    "output": "Best",
+    "A": "Panimalar",
+    "B": "the",
+    "C": "Best",
+    "D": "Chennai",
+    "answer": "C"
+  },
+  {
+    "question": "check1 = ['Learn', 'Quiz', 'Practice', 'Contribute'] \ncheck2 = check1 \ncheck3 = check1[:] \n\ncheck2[0] = 'Code'\ncheck3[1] = 'Mcq'\n\ncount = 0\nfor c in (check1, check2, check3): \n        if c[0] == 'Code': \n                count += 1\n        if c[1] == 'Mcq': \n                count += 10\nprint (count)",
+    "output": 12,
+    "A": 9,
+    "B": 10,
+    "C": 11,
+    "D": 12,
+    "answer": "D"
+  },
+  {
+    "question": "word = \"PytHon ProgrAmmiNg\"\nn = len(word)\nword1 = word.upper()\nword2 = word.lower()\nconverted_word = \"\"\nfor i in range(n):\n if i % 2 == 0:\n   converted_word += word2[i]\n else:\n   converted_word += word1[i]\nprint(converted_word)",
+    "output": "pYtHoN PrOgRaMmInG",
+    "A": "PyThOn pRoGrAmInG",
+    "B": "pYtHoN PrOgRaMmInG",
+    "C": "pYtHon PrOgRaMmInG",
+    "D": "pYtHoN ProgRaMmInG",
+    "answer": "B"
+  },
+  {
+    "question": "def f(value, values):\n    v = 1\n    values[0] = 44\nt = 3\nv = [1, 2, 3]\nf(t, v)\nprint(t,\",\", v[0])",
+    "output": "3,44",
+    "A": "1,3",
+    "B": "44,3",
+    "C": "3,1",
+    "D": "3,44",
+    "answer": "D"
+  },
+  {
+    "question": "def num(arr):\n    sorted_arr = sorted(arr) \n    m = sum(sorted_arr[:4])\n    n = sum(sorted_arr[1:])  \n    return m , n\n\ndef main():\n    arr = [1, 3, 5, 7, 9]\n    m, n = num(arr)\n    print(m , n)\n\nif __name__ == \"__main__\":\n    main()",
+    "output": "16 24",
+    "A": "16 24",
+    "B": "27 15",
+    "C": "15 27",
+    "D": "24 16",
+    "answer": "A"
+  },
+  {
+    "question": "def is_disarium_number(num):\n    num_str = str(num)\n    digit_sum = 0\n    for i, digit_char in enumerate(num_str, start=1):\n        digit = int(digit_char)\n        digit_sum += digit ** i\n    if digit_sum == num:\n        return True\n    else:\n        return False\n\ndef main():\n    num = 89\n    print(is_disarium_number(num))\nif __name__ == \"__main__\":\n    main()",
+    "output": "TRUE",
+    "A": "FALSE",
+    "B": "TRUE",
+    "C": "Neither TRUE nor FALSE",
+    "D": "both TRUE and FALSE",
+    "answer": "B"
+  },
+  {
+    "question": "def number(num):\n    num_str = str(num)\n    digit_sum = sum(int(digit) for digit in num_str)\n    if num % digit_sum == 0:\n        return num\n    else:\n        return False\n\ndef main():\n    num = 19\n    print(number(num))\n\nif __name__ == \"__main__\":\n    main()",
+    "output": "FALSE",
+    "A": "both TRUE and FALSE",
+    "B": "Neither TRUE nor FALSE",
+    "C": "FALSE",
+    "D": "TRUE",
+    "answer": "C"
+  },
+  {
+    "question": "def convert(x):\n    if x % 15 == 0:\n        return \"FizzBuzz\"\n    elif x % 3 == 0:\n        return \"Fizz\"\n    elif x % 5 == 0:\n        return \"Buzz\"\n    else:\n        return str(x)\n\ndef main():\n    for i in range(1):\n        print(convert(i))\n\nif __name__ == \"__main__\":\n    main()",
+    "output": "FizzBuzz",
+    "A": "FizzBuzz",
+    "B": "BuFizzzz",
+    "C": "FiBuzzzz",
+    "D": "BuzzFizz",
+    "answer": "A"
+  },
+  {
+    "question": "from enum import Enum\nclass Machine(Enum):\n    AUTO = \"Truck\"\n    MEDICAL = \"Scanner\"\n\n    def __init__(self, type):\n        self._type = type\n\n    def set_type(self, type):\n        self._type = type\n\n    def get_type(self):\n        return self._type\n\nif __name__ == \"__main__\":\n    Machine.AUTO.set_type(\"Sedan\")\n    for p in Machine:\n        print(p.name + \": \" + p.get_type(), end=\" \")",
+    "output": "AUTO: Sedan MEDICAL: Scanner",
+    "A": "AUTO: Sedan MEDICAL: Scanner",
+    "B": "MEDICAL: Sedan AUTO: Scanner",
+    "C": "AUTO: Scanner MEDICAL: Sedan",
+    "D": "Error",
+    "answer": "A"
+  },
+  {
+    "question": "txt1 = \"PPQRRRSTT\"\ni = 0\nwhile i < len(txt1):\n    x = txt1[i]\n    j = 0\n    i += 1\n    while j < len(txt1):\n        y = txt1[j]\n        if i != j and y == x:\n            txt1 = txt1[:j] + txt1[j+1:]\n        j += 1\nprint(txt1)",
+    "output": "PRST",
+    "A": "PQST",
+    "B": "PRST",
+    "C": "QRST",
+    "D": "PQRS",
+    "answer": "B"
+  },
+  {
+    "question": "map = {}\nkeys = [\"s\", \"p\", \"Q\", \"R\"]\nvalues = [\"senate\", \"people\", \"of\", \"rome\"]\n\nfor i in range(len(keys)):\n    map[keys[i]] = values[i]\n\ndef main():\n    keys.clear()\n    values.clear()\n    print( \"Map:\", len(map))\n\nif __name__ == \"__main__\":\n    main()",
+    "output": "Map: 4",
+    "A": "Map: 1",
+    "B": "Map: 2",
+    "C": "Map: 3",
+    "D": "Map: 4",
+    "answer": "D"
+  },
+  {
+    "question": "class Plant:\n    print(\"Pour water\", end=\" \")\n    \ndef feed(p):\n    if isinstance(p, Tulip):\n        print(\"Take extra care\")\n    p = None\n\nclass Tulip(Plant):\n    print(\"Flowers\", end=\" \")\n\ndef main():\n    plant = Tulip()\n    feed(plant)\n     \nif __name__ == \"__main__\":\n    main()",
+    "output": "Pour water Flowers Take extra care",
+    "A": "Take extra care Pour water  Flowers",
+    "B": "Take extra care Pour water Flowers",
+    "C": "Pour water Flowers Take extra care",
+    "D": "Pour water Take extra care Flowers",
+    "answer": "C"
+  },
+  {
+    "question": "class ConSuper:\n    def __init__(self):\n        self.__init__(2)\n        print(\"num:\", end=\"\")\n    def __init__(self, a):\n        print(a*9)\n        \nclass ConSub(ConSuper):\n    def __init__(self):\n        self.__init__(4)\n        print(\"num:\",end=\"\")\n    def __init__(self, a):\n        print(a)\n\nif __name__ == \"__main__\":\n    ConSub(20)",
+    "output": 20,
+    "A": 20,
+    "B": 36,
+    "C": 45,
+    "D": 39,
+    "answer": "A"
+  },
+  {
+    "question": "class GameObject:\n    def move(self, x, y):\n        print(\"Move GameObject\")\n        return [x + 10, y + 10]\n\nclass Avatar(GameObject):\n    def move(self, x, y):\n        print(\"Move Character\", end =\" \")\n        return super().move(int(x), int(y))\n\nif __name__ == \"__main__\":\n    character = Avatar()\n    character.move(10.0, 10.0)",
+    "output": "Move Character Move GameObject",
+    "A": "Move Character Move ObjectGame",
+    "B": "Move Character Move GameObject",
+    "C": "Move Character GameObject Move",
+    "D": "Move Character ObjectGame Move",
+    "answer": "B"
+  }
+]
