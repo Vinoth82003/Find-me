@@ -8,7 +8,7 @@ Node Game is a web application where users can play a game that involves finding
 
 ## Demo
 
-Check out the live demo of Node Game [here](https://panda-login.vercel.app/).
+Check out the live demo of Node Game [here](https://find-me-pi.vercel.app/).
 
 ## Installation
 
